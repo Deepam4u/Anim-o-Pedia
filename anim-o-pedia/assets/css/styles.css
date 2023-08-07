@@ -1,0 +1,565 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ----------------  Variable CSS  ---------------- */
+
+:root {
+    --header-height: 3.5rem;
+    
+    /* ----------------  Color CSS  ---------------- */
+
+    --hue: 256;
+    --first-color: hsl(var(--hue), 45%, 55%);
+    --title-color: #fff;
+    --text-color: hsl(var(--hue), 8%, 65%);
+    --body-color: hsl(var(--hue), 26%, 11%);
+    --container-color: hsl(var(--hue), 25%, 11%);
+    --container-color-light: hsl(var(--hue), 21%, 14%);
+    --border-color: hsl(var(--hue), 23%, 24%);
+    --black: #000;
+
+    /* ----------------  Font CSS  ---------------- */
+
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2.5rem;
+    --h1-font-size: 1.75rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.725rem;
+
+    /* ----------------  Font Weight  ---------------- */
+
+    --weight-400: 400;
+    --weight-500: 500;
+    --weight-600: 600;
+    --weight-700: 700;
+
+    /* ----------------  Transition  ---------------- */
+
+    --transition: ease-in-out;
+
+}
+
+/* ----------------  Responsive Typo  ---------------- */
+
+@media screen and (max-width: 992px) {
+
+    :root {
+        --big-font-size: 1.75rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.25rem;
+        --h3-font-size: 1rem;
+        --normal-font-size: 0.938rem;
+        --small-font-size: 0.813rem;
+    }
+    
+}
+
+/* ----------------  Base  ---------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+  }
+
+h1, h2, h3, h4 {
+    color: var(--title-color);
+    font-weight: var(--weight-700);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*--------------- REUSABLE CSS CLASSES --------------*/
+
+.container {
+    /* background-color: var(--first-color); */
+    max-width: 100vw;
+    margin-inline: auto;
+    padding-inline: 0.85rem;
+}
+
+.grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding-block: 4rem 3.5rem;
+}
+
+.section_title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 1.75rem;
+}
+
+
+/* -----------------  Header ----------------- */
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav{
+    height: calc(var(--header-height) + 1.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0 1.5rem;
+    transition: .4s; */
+}
+
+.nav__list{
+    display: flex;
+    column-gap: 2.5rem;
+
+}
+
+.nav__link{
+    color: var(--title-color);
+    font-weight: var(--weight-400);
+    transition: all 0.3s var(--transition);
+}
+
+.nav_close , .nav_toggle {
+    display: none;
+
+}
+
+/*----------------  Scroll Header  ------------------ */
+
+.scroll-header{
+    background-color: var(--black);
+    /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); */
+}
+
+/* Active link */
+.nav__link:hover, .active {
+    color: var(--first-color);
+    
+}
+
+
+/* --------------- HOME --------------- */
+
+.home{
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-block: 6rem 2rem;
+}
+
+.home__container {
+    grid-template-columns: 4fr 8fr;
+    align-items: center;
+}
+
+.home_title {
+    font-size: var(--big-font-size);
+    text-transform: uppercase;
+
+}
+
+.home_description {
+    margin-block: 1.3rem 1.6rem;
+}
+
+/* --------------- BUTTON --------------- */
+
+.btn {
+    display: inline-block;
+    background-color: var(--first-color);
+    color: var(--title-color);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: var(--weight-500);
+    transition: all 0.3s var(--transition);
+}
+
+
+/* -------------- BRANDS -------------- */
+
+.brand_items {
+    background-color: var(--container-color);
+    height: 100px;
+    border-radius: 0.5rem;
+    display: grid;
+    place-items: center;
+}
+
+.brand_logo {
+    width: 88%;
+}
+
+/* -------------- ANIME -------------- */
+
+.anime_item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.anime-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    vertical-align: middle;
+    transition: all 0.4s var(--transition);
+}
+
+.anime_item:hover .anime-img {
+    transform: scale(1.1);
+
+}
+
+.anime-data {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, var(--black) 20%
+        hsla(0, 0%, 11%, 0.04) 100%);
+    width: 100%;
+    height: 124px;
+    padding: 1.5rem 1.25rem 0;
+}
+
+.anime-title {
+    font-size: var(--normal-font-size);
+}
+
+.anime-details {
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    margin-block: 0.5rem 0.75rem;
+    display: block;
+}
+
+.anime-rating {
+    font-size: var(--small-font-size);
+    color: hsl(39, 100%, 55%);
+}
+
+/*--------------------- SUBSCRIPTION  ------------------- */
+
+.subscription{
+    background-color: var(--container-color-light);
+    padding-block: 2rem;
+    height: 510px;
+    overflow: hidden;
+}
+
+.subscription_container {
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    align-items: center;
+}
+
+.subscription_img {
+    justify-self: center;
+}
+
+.subscription_title, .subscription_date {
+    text-transform: uppercase;
+}
+
+.subscription_title {
+    margin-bottom: 1.25rem;
+}
+
+sup {
+    font-size: 1rem;
+}
+
+.subscription_date {
+    color: var(--title-color);
+    font-size: var(--h2-font-size);
+    font-weight: var(--weight-700);
+}
+
+.subscription_description {
+    max-width: 500px;
+    margin-block: 1.25rem 1.5rem;
+}
+
+/*--------------------- TRENDING ANIME  ------------------- */
+
+.trending__anime {
+    background-color: var(--container-color-light);
+}
+
+/* --------------------- FOOTER  ------------------- */
+
+.footer {
+    background-color: var(--container-color-light);
+}
+
+.footer_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    padding-block: 4rem;
+}
+
+.footer_title {
+    font-size: var(--h3-font-size);
+    margin-bottom: 1.5rem;
+}
+
+.footer_anime_item, .tweet_item {
+    display: flex;
+    column-gap: 1rem;
+
+}
+
+.footer_anime:not(:last-child), .tweet_item:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.item_data {
+    width: calc(100% - 7rem);
+}
+
+.footer_anime_item img {
+    width: 96px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.item_title, .tweet_title {
+    font-size: var(--normal-font-size);
+    font-weight: var(--weight-500);
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+
+.item_details, .tweet_description {
+    font-size: var(--smaller-font-size);
+    color: var(--first-color);
+}
+
+.item_details {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.item_rating {
+    color: hsl(39, 100%, 55%);
+    font-size: var(--smaller-font-size);
+}
+
+.tweet_item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.tweet_icon {
+    color: var(--first-color);
+    font-size: var(--h1-font-size);
+}
+
+.footer_feed {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.feed_img {
+    height: 75px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.footer_base {
+    background-color: var(--first-color);
+    padding-block: 1rem;
+}
+
+.copyright {
+    color: var(--title-color);
+    text-align: center;
+}
+
+/* --------------- MEDIA QUERIES --------------- */
+
+/* For large devices */
+@media screen and (max-width: 1400px) {
+
+    .container {
+        max-width: 1140px;
+    }
+
+    .home__container {
+        grid-template-columns: 5fr 7fr;
+    }
+
+    .footer_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .container {
+        max-width: 960px;
+    }
+
+    .home__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* For medium devices */
+@media screen and (max-width: 992px) {
+
+    .container {
+        max-width: 720px;
+    }
+
+    .home__container , .subscription_container {
+        grid-template-columns: 1fr;
+        
+    }
+
+    .home__content {
+        order: 1;
+    }
+
+    .subscription {
+        height: 100%;
+    }
+
+    .subscription_description {
+        max-width: 100%;
+    }
+
+    .item_title , .tweet_title {
+        font-size: var(--small-font-size);
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        max-width: 540px;
+    }
+
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: var(--title-color);
+        width: 400px;
+        height: 100%;
+        padding: 4rem 1rem;
+        transition: all 0.3s var(--transition);
+    }
+
+    .show-menu {
+        right: 0;
+    }
+
+    .nav__link , .nav_close {
+        color: var(--black);
+    }
+
+    .nav__link {
+        padding: 0.75rem;
+    }
+
+    .active {
+        background-color: var(--first-color);
+        color: var(--title-color);
+        display: block;
+        font-size: var(--h2-font-size);
+    }
+
+    .nav__list {
+        flex-direction: column;
+        row-gap: 0.75rem;
+    }
+
+    .nav_close , .nav_toggle {
+        display: block;
+    }
+
+    .nav_toggle {
+        color: var(--title-color);
+    }
+
+    .nav_close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .footer_container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* For small devices */
+@media screen and (max-width: 576px) {
+
+    .section {
+        padding-block: 3rem;
+    }
+
+    .nav {
+        height: var(--header-height);
+    }
+
+    .nav__menu {
+        width: 100%;
+    }
+
+    .footer_container {
+        padding-block: 2rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .brand_logo {
+        width: 55%;
+    }
+
+    .footer_anime_item img{
+        width: 85%;
+    }
+
+    .footer_feed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
